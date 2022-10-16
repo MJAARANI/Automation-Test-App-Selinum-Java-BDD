@@ -19,4 +19,4 @@ Feature: Authentification
 		Then cliquer sur Logout
 		Examples:
 		|email                       |      mdp   |
-		|montassar.jaarani@esprit.tn | Selinum@1234 |
+		|montassar.jaarani@esprit.tn | Selinum@1234|

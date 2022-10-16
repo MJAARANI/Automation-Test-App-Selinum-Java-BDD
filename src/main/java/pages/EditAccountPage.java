@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.en.And;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -23,7 +24,7 @@ public class EditAccountPage {
     private By confirmPassSelector = By.cssSelector("#password_2");
     private By savechangesSelector = By.cssSelector("[name='save_account_details']");
     private By accountDetailsChangedSuccessfulySelector = By.cssSelector(".woocommerce-message");
-
+    private By currentPassIsIncorrect = By.cssSelector("ul[class='woocommerce-error'] li");
     //2-constructor of the page
     public EditAccountPage(WebDriver driver) {
         this.driver = driver;
@@ -55,6 +56,40 @@ public class EditAccountPage {
         WebElement tesxtSaveChangesSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(accountDetailsChangedSuccessfulySelector));
         tesxtSaveChangesSuccess.getText();
     }
+    ///////////////////////ChangementMdpSteps//////////////////////////
+    public void saisirFautMDP(String fautMDP) {
+        driver.findElement(currentPasswordSelector).sendKeys(fautMDP);
+    }
+    public void saisirNouveauMotDePassValid(String mdp) throws InterruptedException {
+
+        log.info("sasir nouveau mot de passe valid");
+        WebElement field = driver.findElement(newPassSelector);
+        String text = mdp;
+        for (int i = 0; i < text.length(); i++) {
+            field.sendKeys(String.valueOf(text.charAt(i)));
+            Thread.sleep(500);
+        }
+    }
+    public void confirmNouveauMotDePassValid(String mdp) throws InterruptedException {
+
+        log.info("sasir nouveau mot de passe valid");
+        WebElement field = driver.findElement(confirmPassSelector);
+        String text = mdp;
+        for (int i = 0; i < text.length(); i++) {
+            field.sendKeys(String.valueOf(text.charAt(i)));
+            Thread.sleep(500);
+        }
+    }
+    public void verifierCurrentPasswordIsIncorrect(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_COOKIE));
+        WebElement tesxtSaveChangesSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(currentPassIsIncorrect));
+        tesxtSaveChangesSuccess.getText();
+    }
+
+
+
+
+
 
 
 
