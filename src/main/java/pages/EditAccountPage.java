@@ -86,6 +86,37 @@ public class EditAccountPage {
         tesxtSaveChangesSuccess.getText();
     }
 
+    ///////////////////////////////ChangementMdpMisMuchSteps////////////////
+
+    public void saisirActuelMDP(String actuelMDP) {
+        log.info("sasir mot de passe actuel ");
+        driver.findElement(currentPasswordSelector).sendKeys(actuelMDP);
+    }
+    public void saisirFautNouveauMotDePass(String mdp) throws InterruptedException {
+
+        log.info("sasir faut nouveau mot de passe ");
+        WebElement field = driver.findElement(newPassSelector);
+        String text = mdp;
+        for (int i = 0; i < text.length(); i++) {
+            field.sendKeys(String.valueOf(text.charAt(i)));
+            Thread.sleep(500);
+        }
+    }
+    public void confirmFautNouveauMotDePass(String mdp) throws InterruptedException {
+
+        log.info("sasir nouveau mot de passe valid");
+        WebElement field = driver.findElement(confirmPassSelector);
+        String text = mdp;
+        for (int i = 0; i < text.length(); i++) {
+            field.sendKeys(String.valueOf(text.charAt(i)));
+            Thread.sleep(500);
+        }
+    }
+    public void verifierNewPasswordsDoNotMuch(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_COOKIE));
+        WebElement tesxtSaveChangesSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(currentPassIsIncorrect));
+        tesxtSaveChangesSuccess.getText();
+    }
 
 
 

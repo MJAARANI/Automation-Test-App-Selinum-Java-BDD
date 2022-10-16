@@ -39,6 +39,8 @@ public class MyAccountPage {
     ///////////////////////////////////////////////reinitialisationSelector///////////////////////////////////////////
     private By lostPassClickSelector = By.xpath("(//*[@href='https://practice.automationtesting.in/my-account/lost-password/'])[1]");
 
+    private By paveLoginSelector = By.cssSelector(".login");
+    private By paveRegisterSelector = By.cssSelector(".register");
 
     private static final Logger log = LogManager.getLogger(HomePage.class);
     //2-Constructor of the page
@@ -159,6 +161,16 @@ public class MyAccountPage {
 
     }
 
+    //////////////////////////////////////////DeconnexionSteps//////////////////////////////
+
+    public String verifierpaveLogin() {
+        return driver.findElement(paveLoginSelector).getText();
+
+    }
+    public String verifierpaveRegister() {
+        return driver.findElement(paveRegisterSelector).getText();
+
+    }
 
 
 

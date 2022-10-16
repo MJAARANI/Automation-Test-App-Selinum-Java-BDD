@@ -16,3 +16,5 @@ Feature: Affichage  des informations de mon compte
 		Examples:
 				|email                       |      mdp   |
 				|montassar.jaarani@esprit.tn | Selinum@1234|
+
+

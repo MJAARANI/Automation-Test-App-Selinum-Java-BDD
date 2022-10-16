@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         //dryRun = false,
-        features = "src/test/resources/features/changePassword.feature",
+        features = "src/test/resources/features/deconnexion.feature",
         glue = {"steps","AppHooks"},
         //tags = {"@POEI22-753"},
         plugin = { "pretty", "html:target/cucumber-reports","json:target/cucumber.json" }
