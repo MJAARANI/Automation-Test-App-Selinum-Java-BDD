@@ -12,9 +12,9 @@ Feature: Affichage  des informations de mon compte
 		And saisir last name utilisateur "Jaarani"
 		Then verifier email utilisateur
 		Then cliquer sur save changes
-		#Then verifier que les changements sont prises en compte
+		Then verifier que les changements sont prises en compte
 		Examples:
 				|email                       |      mdp     |
-				#|montassar.jaarani@esprit.tn | Selinum@1234 |
-				|             1239@gmail.com  |  Selinum@1234            |
+				|montassar.jaarani@esprit.tn | Selinum@1234 |
+
 

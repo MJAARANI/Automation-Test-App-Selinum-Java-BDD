@@ -32,7 +32,7 @@ public class GestionCompteSteps {
 
     @Then("verifier email utilisateur")
     public void verifierEmailUtilisateur() {
-        editAccountPage.verifierAccountDetailsChangedSuccessfully();
+        editAccountPage.verifierEmailConnexion();
         Assert.assertTrue("montassar.jaarani@esprit.tn",true);
     }
 
@@ -40,12 +40,12 @@ public class GestionCompteSteps {
     public void cliquerSurSaveChanges() {
         editAccountPage.clickOnSaveChanges();
     }
-/*
+
     @Then("verifier que les changements sont prises en compte")
     public void verifierQueLesChangementsSontPrisesEnCompte() {
         editAccountPage.verifierAccountDetailsChangedSuccessfully();
         Assert.assertTrue("successfully",true);
     }
 
- */
+
 }

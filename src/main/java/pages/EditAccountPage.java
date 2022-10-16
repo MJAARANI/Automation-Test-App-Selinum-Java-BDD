@@ -38,16 +38,21 @@ public class EditAccountPage {
     public void enterLastName(String lastName) {
         driver.findElement(lastNameSelector).sendKeys(lastName);
     }
+    public void verifierEmailConnexion(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_COOKIE));
+        WebElement emailUtilisateur = wait.until(ExpectedConditions.visibilityOfElementLocated(emailCurrentAccount));
+        emailUtilisateur.getText();
+    }
 
     public void clickOnSaveChanges() {
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_COOKIE));
-        //WebElement buttonSaveChanges = wait.until(ExpectedConditions.elementToBeClickable(savechangesSelector));
-        //buttonSaveChanges.click();
-        driver.findElement(savechangesSelector).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_COOKIE));
+        WebElement buttonSaveChanges = wait.until(ExpectedConditions.elementToBeClickable(savechangesSelector));
+        buttonSaveChanges.click();
+        //driver.findElement(savechangesSelector).click();
     }
     public void verifierAccountDetailsChangedSuccessfully(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_COOKIE));
-        WebElement tesxtSaveChangesSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(savechangesSelector));
+        WebElement tesxtSaveChangesSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(accountDetailsChangedSuccessfulySelector));
         tesxtSaveChangesSuccess.getText();
     }
 
